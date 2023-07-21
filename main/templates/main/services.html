@@ -1,0 +1,41 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Услуги{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% if services.count > 0 %}
+            {% for service in services %}
+                <div class="card me-5 my-2" style="width: 15rem;">
+                    <img src="{{ service.image.url }}" class="card-img-top my-2" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ service.title }}</h5>
+                        <p class="card-text">{{ service.content }}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Стоимость: {{ service.price }} руб.</li>
+                    </ul>
+                    <div class="card-body text-center">
+                        <a href="https://vk.com/id84729551" class="card-link">Записаться</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+<h2>Список услуг</h2>
+<table>
+    <thead>
+        <th>Услуга</th>
+        <th>Описание</th>
+        <th>Изображение</th>
+        <th></th>
+    </thead>
+    {% for service in services %}
+        <tr>
+            <td>{{ service.title }}</td>
+            <td>{{ service.content }}</td>
+            <td><img src="{{ service.image.url }}"></td>
+        </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block content %}
+    <div class="container pt-4 px-1">
+        <div class="row">
+            <div class="col-4 px-4"><img class="rounded-5" alt="" src="{% static 'main/media/vk_logo1.jpg' %}"></div>
+            <div class="col-8 pt-5">
+                <a class="nav-link text-success" href="https://vk.com/id84729551">
+                    <p class="fs-2">Страница в "ВКонтакте"</p></a>
+            </div>
+            <div class="col-4 pt-5">
+                <img class="rounded-5" alt="" width="125" src="{% static 'main/media/yandex_mail_logo.png' %}">
+            </div>
+            <div class="col-8 pt-5">
+                <p class="fs-2 text-success">pakhomova.xeniya@yandex.ru</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

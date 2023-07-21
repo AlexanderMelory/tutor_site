@@ -1,0 +1,37 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Профиль пользователя{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">Профиль пользователя {{ user.username }}</h2>
+
+    {% if user.first_name and user.last_name %}
+        <p class="text-center">Здравствуйте, {{ user.first_name }} {{ user.last_name }}!</p>
+
+    {% else %}
+        <p class="text-center">Здравствуйте!</p>
+
+    {% endif %}
+    <div class="container">
+        <div class="row row-cols-auto">
+            <div class="col-4">
+                <a class="dropdown-item text-center bg-success rounded-5 fs-2"
+                   href="{% url 'main:profile_change' %}">Изменить
+                    личные данные</a>
+            </div>
+        </div>
+        <div class="row row-cols-auto">
+            <div class="col-3">
+                <a class="dropdown-item text-center bg-warning rounded-5 fs-3"
+                   href="{% url 'main:password_change' %}">Изменить
+                    пароль</a>
+            </div>
+        </div>
+        <div class="row row-cols-auto">
+            <div class="col-2">
+                <a class="dropdown-item text-center text-white bg-dark rounded-5 fs-4"
+                   href="{% url 'main:logout' %}">Выход</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
